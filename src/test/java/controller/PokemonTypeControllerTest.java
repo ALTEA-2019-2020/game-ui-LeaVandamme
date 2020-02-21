@@ -1,5 +1,6 @@
-package com.miage.altea.game_ui.controller;
+package controller;
 
+import com.miage.altea.game_ui.controller.PokemonTypeController;
 import com.miage.altea.game_ui.pokemonTypes.bo.PokemonType;
 import com.miage.altea.game_ui.pokemonTypes.service.PokemonTypeService;
 import org.junit.jupiter.api.Test;
