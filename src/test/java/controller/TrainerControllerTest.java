@@ -1,10 +1,8 @@
 package controller;
 
 import com.miage.altea.game_ui.controller.TrainerController;
-import com.miage.altea.game_ui.pokemonTypes.bo.PokemonType;
-import com.miage.altea.game_ui.pokemonTypes.bo.Trainer;
-import com.miage.altea.game_ui.pokemonTypes.service.PokemonTypeService;
-import com.miage.altea.game_ui.pokemonTypes.service.TrainerService;
+import com.miage.altea.game_ui.trainers.bo.Trainer;
+import com.miage.altea.game_ui.trainers.service.TrainerService;
 import org.junit.jupiter.api.Test;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

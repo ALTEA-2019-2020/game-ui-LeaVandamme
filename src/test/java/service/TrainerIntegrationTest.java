@@ -1,6 +1,6 @@
 package service;
 
-import com.miage.altea.game_ui.pokemonTypes.service.TrainerServiceImpl;
+import com.miage.altea.game_ui.trainers.service.TrainerServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Value;
 import static org.junit.jupiter.api.Assertions.*;

@@ -19,8 +19,8 @@ public class PokemonTypeServiceImpl implements PokemonTypeService {
     //private LocaleContextHolder localeContextHolder;
 
     public List<PokemonType> listPokemonsTypes() {
-        System.out.println(pokemonServiceUrl+"/pokemon-types/");
-        return Arrays.asList(restTemplate.getForObject(pokemonServiceUrl+"/pokemon-types/", PokemonType[].class));
+        System.out.println(pokemonServiceUrl+"pokemon-types/");
+        return Arrays.asList(restTemplate.getForObject(pokemonServiceUrl+"pokemon-types/", PokemonType[].class));
     }
 
     @Autowired
