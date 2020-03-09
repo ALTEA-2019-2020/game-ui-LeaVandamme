@@ -38,7 +38,10 @@ public class RestConfiguration {
 
     @Bean
     public RestTemplate restTemplate(){
-        return new RestTemplate();
+        RestTemplate restTemplate = new RestTemplate();
+        Interceptor interceptor = new Interceptor();
+        restTemplate.setInterceptors(Arrays.asList(interceptor));
+        return restTemplate;
     }
 
 }

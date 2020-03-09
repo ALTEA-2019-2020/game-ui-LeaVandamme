@@ -2,10 +2,13 @@ package com.miage.altea.game_ui.controller;
 
 import com.miage.altea.game_ui.trainers.service.TrainerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.security.Principal;
 
 @Controller
 public class TrainerController {
@@ -30,6 +33,14 @@ public class TrainerController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("trainerDetails");
         mav.addObject("trainer", trainerService.getTrainerByName(name));
+        return mav;
+    }
+
+    @GetMapping("/profile")
+    public ModelAndView profile(Principal p){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("trainerDetails");
+        mav.addObject("user", trainerService.getTrainerByName(p.getName()));
         return mav;
     }
 }
