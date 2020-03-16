@@ -25,6 +25,7 @@ public class TrainerController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("trainers");
         mav.addObject("trainers", trainerService.listTrainer());
+
         return mav;
     }
 
@@ -41,6 +42,7 @@ public class TrainerController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("trainerDetails");
         mav.addObject("user", trainerService.getTrainerByName(p.getName()));
+        mav.addObject("trainerDetails", trainerService.getTrainerByName(p.getName()));
         return mav;
     }
 }
