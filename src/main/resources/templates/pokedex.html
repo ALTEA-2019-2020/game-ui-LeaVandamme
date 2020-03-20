@@ -11,7 +11,7 @@
             <div class="card shadow-sm mb-3">
                 <div class="card-header">
                     <h4 class="my-0 font-weight-normal">{{name}} <!--2--><span class="badge badge-secondary">Id {{id}} <!--3--></span></h4>
-                    <span class="badge badge-primary">{{types}}</span>
+
                 </div>
                 <img class="card-img-top" src="{{sprites.front_default}}" alt="Pokemon"/>
                 <img class="card-img-top" src="{{sprites.back_default}}" alt="Pokemon"/>
@@ -22,6 +22,11 @@
                     <span class="badge badge-primary">Attack : {{stats.attack}}</span>
                     <span class="badge badge-primary">Defense : {{stats.defense}}</span>
                     <span class="badge badge-primary">HP : {{stats.hp}}</span>
+                </div>
+                <div class="card-body">
+                    {{#types}}
+                    <span class="badge badge-secondary">{{this}}</span>
+                    {{/types}}
                 </div>
             </div>
         </div>

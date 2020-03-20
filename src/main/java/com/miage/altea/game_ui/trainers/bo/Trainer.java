@@ -1,6 +1,7 @@
 package com.miage.altea.game_ui.trainers.bo;
 
 import com.miage.altea.game_ui.pokemonTypes.bo.Pokemon;
+import com.miage.altea.game_ui.pokemonTypes.bo.PokemonType;
 
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -16,6 +17,7 @@ public class Trainer {
 
     @ElementCollection
     private List<Pokemon> team;
+
 
     public Trainer() {
     }

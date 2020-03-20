@@ -1,6 +1,7 @@
 package com.miage.altea.game_ui.pokemonTypes.bo;
 
-import javax.persistence.Embeddable;
+
+import javax.persistence.*;
 
 @Embeddable
 public class Pokemon {
@@ -8,6 +9,9 @@ public class Pokemon {
     private int pokemonTypeId;
 
     private int level;
+
+    @Transient
+    private PokemonType pt;
 
     public Pokemon() {
     }
@@ -31,5 +35,13 @@ public class Pokemon {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    public void setPt(PokemonType pt) {
+        this.pt = pt;
+    }
+
+    public PokemonType getPt() {
+        return pt;
     }
 }
