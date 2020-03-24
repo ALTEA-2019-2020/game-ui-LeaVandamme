@@ -31,12 +31,12 @@ public class PokemonTypeServiceImpl implements PokemonTypeService {
     }
 
     @Autowired
-    void setRestTemplate(RestTemplate restTemplate) {
+    public void setRestTemplate(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
     @Value("${pokemonType.service.url}")
-    void setPokemonTypeServiceUrl(String pokemonServiceUrl) {
+    public void setPokemonTypeServiceUrl(String pokemonServiceUrl) {
         this.pokemonServiceUrl = pokemonServiceUrl;
     }
 }

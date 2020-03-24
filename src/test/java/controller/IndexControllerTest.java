@@ -1,5 +1,6 @@
-package com.miage.altea.game_ui.controller;
+package controller;
 
+import com.miage.altea.game_ui.controller.IndexController;
 import org.junit.jupiter.api.Test;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,6 +1,7 @@
-package com.miage.altea.game_ui.pokemonTypes.service;
+package service;
 
 import com.miage.altea.game_ui.pokemonTypes.bo.PokemonType;
+import com.miage.altea.game_ui.pokemonTypes.service.PokemonTypeServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
