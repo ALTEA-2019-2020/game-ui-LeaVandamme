@@ -38,12 +38,12 @@ public class BattleServiceImpl implements BattleService{
 
     @Autowired
     @Qualifier("trainerApiRestTemplate")
-    void setRestTemplate(RestTemplate restTemplate) {
+    public void setRestTemplate(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
     @Value("${battle.service.url}")
-    void setTrainerServiceUrl(String pokemonServiceUrl) {
+    public void setBattleServiceUrl(String pokemonServiceUrl) {
         this.pokemonServiceUrl = pokemonServiceUrl;
     }
 }

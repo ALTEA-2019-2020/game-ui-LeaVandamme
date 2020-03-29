@@ -1,8 +1,5 @@
 package service;
 
-import com.miage.altea.game_ui.pokemonTypes.bo.PokemonType;
-import com.miage.altea.game_ui.pokemonTypes.service.PokemonTypeService;
-import com.miage.altea.game_ui.pokemonTypes.service.PokemonTypeServiceImpl;
 import com.miage.altea.game_ui.trainers.bo.Trainer;
 import com.miage.altea.game_ui.trainers.service.TrainerServiceImpl;
 import org.junit.jupiter.api.Test;
@@ -13,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -33,7 +29,7 @@ public class TrainerServiceTest {
         var ash = new Trainer();
         ash.setName("ash");
 
-        var expectedUrl = "http://localhost:8081/trainers";
+        var expectedUrl = "http://localhost:8081/trainers/";
         Mockito.when(trainerServiceImpl.listTrainer()).thenReturn(Arrays.asList(new Trainer[]{ash}));
 
         var trainers = trainerServiceImpl.listTrainer();

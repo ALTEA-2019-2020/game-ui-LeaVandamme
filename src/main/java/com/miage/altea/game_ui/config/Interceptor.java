@@ -1,5 +1,6 @@
 package com.miage.altea.game_ui.config;
 
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.client.ClientHttpRequestExecution;
@@ -24,4 +25,16 @@ public class Interceptor implements ClientHttpRequestInterceptor {
         return clientHttpRequestExecution.execute(httpRequest, bytes);
 
     }
+
+    /*@Override
+    public ClientHttpResponse intercept(HttpRequest httpRequest, byte[] bytes, ClientHttpRequestExecution clientHttpRequestExecution) throws IOException {
+        HttpHeaders headers = httpRequest.getHeaders();
+        List<Locale.LanguageRange> language = new ArrayList<Locale.LanguageRange>();
+        language.add(new Locale.LanguageRange(LocaleContextHolder.getLocale().getDisplayName()));
+        if (!headers.containsKey("Accept-language")) {
+            headers.setAcceptLanguage(language);
+        }
+        return clientHttpRequestExecution.execute(httpRequest, bytes);
+
+    }*/
 }

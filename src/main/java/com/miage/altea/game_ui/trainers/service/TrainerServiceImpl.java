@@ -20,6 +20,7 @@ public class TrainerServiceImpl implements TrainerService {
     private String pokemonServiceUrl;
     private PokemonTypeService pokemonTypeService;
 
+    @Override
     public List<Trainer> listTrainer() {
         Trainer[] tList =  restTemplate.getForObject(pokemonServiceUrl+"trainers/", Trainer[].class);
         List<Trainer> trainersList = Arrays.asList(tList);
