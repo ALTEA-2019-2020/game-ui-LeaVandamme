@@ -30,7 +30,7 @@ public class TrainerServiceTest {
         ash.setName("ash");
 
         var expectedUrl = "http://localhost:8081/trainers/";
-        Mockito.when(trainerServiceImpl.listTrainer()).thenReturn(Arrays.asList(new Trainer[]{ash}));
+        Mockito.when(restTemplate.getForObject(expectedUrl, Trainer[].class)).thenReturn(new Trainer[]{ash});
 
         var trainers = trainerServiceImpl.listTrainer();
 

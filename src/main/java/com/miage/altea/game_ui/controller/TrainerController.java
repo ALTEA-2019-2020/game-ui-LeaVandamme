@@ -27,37 +27,37 @@ public class TrainerController {
     }
 
     @GetMapping("/trainers")
-    public ModelAndView trainers(){
+    public ModelAndView trainers(Principal p){
         ModelAndView mav = new ModelAndView();
         mav.setViewName("trainers");
-        mav.addObject("trainers", trainerService.listTrainer());
+
+        List<Trainer> allTrainers = trainerService.listTrainer();
+        allTrainers = new ArrayList<Trainer>(allTrainers);
+        allTrainers.removeIf(t -> t.getName().equals(p.getName()));
+
+        mav.addObject("user", trainerService.getTrainerByName(p.getName()));
+        mav.addObject("trainers", allTrainers);
 
         return mav;
     }
 
     @GetMapping("/trainers/{name}")
-    public ModelAndView trainersDetails(@PathVariable String name){
+    public ModelAndView trainersDetails(@PathVariable String name) {
+
         ModelAndView mav = new ModelAndView();
         mav.setViewName("trainerDetails");
-        mav.addObject("trainer", trainerService.getTrainerByName(name));
+        mav.addObject("trainers", trainerService.getTrainerByName(name));
+
         return mav;
     }
 
     @GetMapping("/profile")
     public ModelAndView profile(Principal p){
+
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("trainerDetails");
-
-        List<Trainer> allTrainers = trainerService.listTrainer();
-        allTrainers = new ArrayList<Trainer>(allTrainers);
-        for(Trainer t : allTrainers){
-            if(t.getName().equals(p.getName())){
-                allTrainers.remove(t);
-            }
-        }
-
+        mav.setViewName("profile");
+        mav.addObject("trainer", trainerService.getTrainerByName(p.getName()));
         mav.addObject("user", trainerService.getTrainerByName(p.getName()));
-        mav.addObject("trainers", allTrainers);
 
         return mav;
     }

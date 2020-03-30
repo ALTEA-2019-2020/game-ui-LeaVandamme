@@ -3,7 +3,6 @@ package com.miage.altea.game_ui.trainers.service;
 import com.miage.altea.game_ui.pokemonTypes.bo.Pokemon;
 import com.miage.altea.game_ui.pokemonTypes.service.PokemonTypeService;
 import com.miage.altea.game_ui.trainers.bo.Trainer;
-import com.miage.altea.game_ui.trainers.service.TrainerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,12 +16,12 @@ import java.util.List;
 public class TrainerServiceImpl implements TrainerService {
 
     private RestTemplate restTemplate;
-    private String pokemonServiceUrl;
+    private String trainerServiceUrl;
     private PokemonTypeService pokemonTypeService;
 
     @Override
     public List<Trainer> listTrainer() {
-        Trainer[] tList =  restTemplate.getForObject(pokemonServiceUrl+"trainers/", Trainer[].class);
+        Trainer[] tList =  restTemplate.getForObject(trainerServiceUrl+"/trainers/", Trainer[].class);
         List<Trainer> trainersList = Arrays.asList(tList);
         for(Trainer t : tList){
             for(Pokemon pok : t.getTeam()){
@@ -34,7 +33,11 @@ public class TrainerServiceImpl implements TrainerService {
 
     @Override
     public Trainer getTrainerByName(String name) {
-        return restTemplate.getForObject(pokemonServiceUrl+"trainers/"+name+"/", Trainer.class);
+        Trainer t = restTemplate.getForObject(trainerServiceUrl+"/trainers/"+name+"/", Trainer.class);
+        for(Pokemon pok : t.getTeam()){
+            pok.setPt(pokemonTypeService.getPokemonType(pok.getPokemonTypeId()));
+        }
+        return t;
     }
 
     @Autowired
@@ -44,8 +47,8 @@ public class TrainerServiceImpl implements TrainerService {
     }
 
     @Value("${trainer.service.url}")
-    public void setTrainerServiceUrl(String pokemonServiceUrl) {
-        this.pokemonServiceUrl = pokemonServiceUrl;
+    public void setTrainerServiceUrl(String trainerServiceUrl) {
+        this.trainerServiceUrl =trainerServiceUrl;
     }
 
     @Autowired

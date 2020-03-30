@@ -17,7 +17,7 @@ public class PokemonTypeServiceImpl implements PokemonTypeService {
 
     @Override
     public List<PokemonType> listPokemonsTypes(){
-        return Arrays.asList(restTemplate.getForObject(pokemonServiceUrl+"pokemon-types/", PokemonType[].class));
+        return Arrays.asList(restTemplate.getForObject(pokemonServiceUrl+"/pokemon-types/", PokemonType[].class));
     }
 
     @Override

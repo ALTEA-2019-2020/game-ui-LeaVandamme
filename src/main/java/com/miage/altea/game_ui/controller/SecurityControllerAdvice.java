@@ -1,4 +1,4 @@
-package controller;
+package com.miage.altea.game_ui.controller;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,7 +12,7 @@ import java.security.Principal;
 public class SecurityControllerAdvice {
 
     @ModelAttribute(value="user")
-    Object principal(){
+    public Object principal(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User principal = (User) authentication.getPrincipal();
         return principal;

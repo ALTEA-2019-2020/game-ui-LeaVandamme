@@ -1,5 +1,6 @@
 package controller;
 
+import com.miage.altea.game_ui.controller.SecurityControllerAdvice;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
