@@ -20,18 +20,18 @@ public class BattleServiceImpl implements BattleService{
 
     @Override
     public Battle getCurrentBattle(UUID uuid) {
-        return restTemplate.getForObject(pokemonServiceUrl+"battles/"+uuid.toString()+"/", Battle.class);
+        return restTemplate.getForObject(pokemonServiceUrl+"/battles/"+uuid.toString()+"/", Battle.class);
     }
 
     @Override
     public List<Battle> getBattles() {
-        return Arrays.asList(restTemplate.getForObject(pokemonServiceUrl+"battles/", Battle[].class));
+        return Arrays.asList(restTemplate.getForObject(pokemonServiceUrl+"/battles/", Battle[].class));
 
     }
 
     @Override
     public Battle attackAction(UUID uuid, String attacker, Battle battle) throws Exception {
-        return restTemplate.getForObject(pokemonServiceUrl+"battles/"+uuid.toString()+"/"
+        return restTemplate.getForObject(pokemonServiceUrl+"/battles/"+uuid.toString()+"/"
                 + attacker + "/" + "/attack", Battle.class);
 
     }

@@ -19,7 +19,7 @@ public class TrainerServiceTest {
 
     @Test
     void listTrainers_shouldCallTheRemoteService() {
-        var url = "http://localhost:8081";
+        String url = "http://localhost:8081";
 
         var restTemplate = mock(RestTemplate.class);
         var trainerServiceImpl = new TrainerServiceImpl();

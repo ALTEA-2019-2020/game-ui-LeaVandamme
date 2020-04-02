@@ -21,23 +21,27 @@ class TrainerControllerTest {
 
     @Test
     void trainers_shouldReturnAModelAndView() {
-        /*var trainerService = mock(TrainerService.class);
-
-        when(trainerService.listTrainer()).thenReturn(List.of(new Trainer(), new Trainer()));
+        var trainerService = mock(TrainerService.class);
+        Trainer trainerAsh = new Trainer();
+        trainerAsh.setName("Ash");
+        Trainer trainerMisty = new Trainer();
+        trainerMisty.setName("Misty");
+        when(trainerService.listTrainer()).thenReturn(List.of(trainerAsh, trainerMisty));
 
         var trainerController = new TrainerController();
         trainerController.setTrainerService(trainerService);
-        var modelAndView = trainerController.trainers();
+        var modelAndView = trainerController.trainers(() -> "Ash");
 
         assertEquals("trainers", modelAndView.getViewName());
         var trainers = (List<Trainer>) modelAndView.getModel().get("trainers");
-        assertEquals(2, trainers.size());
-        verify(trainerService).listTrainer();*/
+        //Doit retourner 1 car on n'affiche que les trainers autres que celui connecté
+        assertEquals(1, trainers.size());
+        verify(trainerService).listTrainer();
     }
 
     @Test
     void trainers_shouldBeAnnotated() throws NoSuchMethodException {
-        var trainersMethod = TrainerController.class.getDeclaredMethod("trainers");
+        var trainersMethod = TrainerController.class.getDeclaredMethod("trainers", Principal.class);
         var getMapping = trainersMethod.getAnnotation(GetMapping.class);
 
         assertNotNull(getMapping);
