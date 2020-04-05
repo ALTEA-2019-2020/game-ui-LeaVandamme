@@ -1,16 +1,16 @@
 ## GameUI 
 
-Port utilisé : 9000
+Port utilisé : 9000  
 Version Java : 13
 
 #### Sécurité
 
-user : Ash
+user : Ash  
 password : ash_password
 
 ou 
 
-user : Misty
+user : Misty  
 password : misty_password
 
 #### Pour tester 
