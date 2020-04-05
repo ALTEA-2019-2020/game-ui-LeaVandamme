@@ -1,6 +1,7 @@
 ## GameUI 
 
 Port utilisé : 9000
+Version Java : 13
 
 #### Sécurité
 
